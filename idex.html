@@ -1,0 +1,464 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mandalay | Discover Myanmar</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', 'Noto Sans JP', sans-serif;
+    color: #252525;
+    background: #faf9f6;
+    line-height: 1.8;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: rgba(255,255,255,0.94);
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #b17b45;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #b17b45;
+}
+
+.hero {
+    height: 100vh;
+    min-height: 600px;
+    background:
+      linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.4)),
+      url('https://images.unsplash.com/photo-1513415564515-763d91423bdd?w=1800')
+      center/cover;
+    display: flex;
+    align-items: center;
+    padding: 0 12%;
+    color: white;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero small {
+    letter-spacing: 5px;
+    color: #f0c99b;
+}
+
+.hero h1 {
+    font-size: clamp(55px, 9vw, 100px);
+    line-height: 1.1;
+    margin: 20px 0;
+    letter-spacing: 4px;
+}
+
+.hero p {
+    font-size: 17px;
+    margin-bottom: 35px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 35px;
+    background: #b17b45;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #8e5d31;
+    transform: translateY(-3px);
+}
+
+section {
+    padding: 100px 10%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-title span {
+    color: #b17b45;
+    letter-spacing: 4px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.section-title h2 {
+    font-size: 35px;
+    margin-top: 8px;
+}
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.about-text h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.places {
+    background: #f0ede7;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    overflow: hidden;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,.1);
+}
+
+.card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card-content h3 {
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    font-size: 14px;
+    color: #777;
+}
+
+.food {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.food-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.food-item img {
+    width: 130px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.food-item p {
+    font-size: 13px;
+    color: #777;
+}
+
+.gallery {
+    background: #f0ede7;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: 0.4s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.03);
+}
+
+.contact {
+    text-align: center;
+}
+
+.contact p {
+    color: #777;
+    margin-bottom: 25px;
+}
+
+footer {
+    text-align: center;
+    background: #242424;
+    color: white;
+    padding: 30px;
+    font-size: 13px;
+}
+
+@media(max-width: 768px) {
+    header {
+        padding: 15px 5%;
+        flex-wrap: wrap;
+    }
+
+    nav {
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        font-size: 11px;
+    }
+
+    .hero {
+        padding: 0 7%;
+    }
+
+    section {
+        padding: 70px 7%;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .food {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">MANDALAY.</div>
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#places">PLACES</a>
+        <a href="#food">FOOD</a>
+        <a href="#gallery">GALLERY</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+<div class="hero" id="home">
+    <div class="hero-content">
+        <small>DISCOVER THE BEAUTY OF MYANMAR</small>
+        <h1>MANDALAY</h1>
+        <p>Discover the culture, history and beauty<br>
+        of the last royal capital of Myanmar.</p>
+        <a href="#about" class="btn">Explore More →</a>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="section-title">
+        <span>INTRODUCTION</span>
+        <h2>About Mandalay</h2>
+    </div>
+
+    <div class="about">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900"
+             alt="Beautiful landscape">
+
+        <div class="about-text">
+            <h3>The Heart of Myanmar</h3>
+            <p>
+                マンダレーはミャンマーの北部にある歴史と文化が豊かな街です。
+                ミャンマー最後の王都として知られています。
+            </p>
+            <p>
+                美しいお寺や伝統的な文化、人々の温かさが
+                マンダレーの大きな魅力です。
+            </p>
+            <p>
+                伝統と自然が調和した、魅力あふれる街を
+                ぜひ知ってください。
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- PLACES -->
+<section class="places" id="places">
+    <div class="section-title">
+        <span>TRAVEL DESTINATIONS</span>
+        <h2>Famous Places</h2>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1540611025311-01df3cef54b5?w=800"
+                 alt="Temple">
+            <div class="card-content">
+                <h3>Mandalay Hill</h3>
+                <p>マンダレーの街を一望できる有名な観光スポットです。</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1606293926075-69a00dbfde81?w=800"
+                 alt="Buddhist pagoda">
+            <div class="card-content">
+                <h3>Kuthodaw Pagoda</h3>
+                <p>世界最大の本として知られる石碑がある美しいパゴダです。</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1513415564515-763d91423bdd?w=800"
+                 alt="Myanmar scenery">
+            <div class="card-content">
+                <h3>U Bein Bridge</h3>
+                <p>美しい夕日で有名な、世界的にも知られる木造の橋です。</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOD -->
+<section id="food">
+    <div class="section-title">
+        <span>MYANMAR CUISINE</span>
+        <h2>Traditional Food</h2>
+    </div>
+
+    <div class="food">
+
+        <div class="food-item">
+            <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=500"
+                 alt="Noodles">
+            <div>
+                <h3>Mohinga</h3>
+                <p>ミャンマーで人気の魚のスープを使った麺料理です。</p>
+            </div>
+        </div>
+
+        <div class="food-item">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500"
+                 alt="Salad">
+            <div>
+                <h3>Tea Leaf Salad</h3>
+                <p>発酵させたお茶の葉を使った伝統的なサラダです。</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+    <div class="section-title">
+        <span>PHOTO COLLECTION</span>
+        <h2>Beautiful Moments</h2>
+    </div>
+
+    <div class="gallery-grid">
+        <img src="https://images.unsplash.com/photo-1513415564515-763d91423bdd?w=600" alt="Myanmar view">
+        <img src="https://images.unsplash.com/photo-1540611025311-01df3cef54b5?w=600" alt="Temple">
+        <img src="https://images.unsplash.com/photo-1606293926075-69a00dbfde81?w=600" alt="Pagoda">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600" alt="Nature">
+        <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=600" alt="Scenery">
+        <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=600" alt="Landscape">
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <div class="section-title">
+        <span>THANK YOU</span>
+        <h2>Discover Myanmar</h2>
+    </div>
+
+    <p>Thank you for visiting my Mandalay introduction website.</p>
+    <a href="#home" class="btn">Back to Top ↑</a>
+</section>
+
+<footer>
+    <p>© 2026 MANDALAY. Designed with love.</p>
+</footer>
+
+</body>
+</html>
